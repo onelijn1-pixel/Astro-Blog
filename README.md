@@ -1,46 +1,80 @@
-# Astro Starter Kit: Basics
+# Linh Chàn — Personal Blog (Astro)
 
-```sh
-npm create astro@latest -- --template basics
+A minimal personal blog built with Astro and Tailwind CSS. This repository contains the site source, content (Markdown posts), and small utilities for rendering a clean, responsive blog.
+
+## Introduction
+
+This project is a personal blog template based on Astro. It's optimized for fast page loads by using static rendering where possible and server-side rendering for dynamic routes. Content is authored as Markdown files stored under `src/content/posts` and displayed with a flexible article layout, table of contents, and responsive design.
+
+Key features:
+
+- Markdown-based posts with frontmatter metadata (title, date, tags, description, timeToRead, etc.)
+- Table of contents generated from headings
+- Responsive layout with accessible typography and Tailwind CSS
+- Optional server rendering for dynamic pages
+
+## Tech stack
+
+- Astro — framework for building fast websites
+- Tailwind CSS — utility-first styling
+- PostCSS + Autoprefixer — CSS processing
+- Zod + `astro:content` — content collections and schema validation
+- Optional: Vue integration (installed in `astro.config.mjs`)
+
+## Project structure
+
+```
+astro-project/
+├── astro.config.mjs          # Astro configuration (integrations, Vite plugins)
+├── package.json              # npm scripts and dependencies
+├── src/
+│   ├── content/              # Markdown posts (collection: blog)
+│   │   └── posts/
+│   ├── components/           # Reusable UI components (Toc, ListPost, etc.)
+│   ├── layouts/              # Page layouts (Header, Footer, Layout.astro)
+│   ├── pages/                # Route files (index.astro, blog/[slug].astro)
+│   └── styles/               # CSS files (global.css, post.css)
+├── public/                   # Static assets served at root
+└── src/content.config.ts     # Content collection config and schemas
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-## 🚀 Project Structure
+Run these from the project root (PowerShell on Windows):
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```powershell
+npm install          # install dependencies
+npm run dev          # start local dev server (http://localhost:4321)
+npm run build        # build production files
+npm run preview      # preview built site
+npm run astro -- --help   # get help for Astro CLI
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Content authoring
 
-## 🧞 Commands
+- Place Markdown posts in `src/content/posts/`.
+- Use frontmatter YAML at the top of each post with required fields.
+- Example frontmatter:
 
-All commands are run from the root of the project, from a terminal:
+```md
+---
+id: "post-slug"
+title: "My Post Title"
+date: "2025-12-14"
+tags: ["tag1", "tag2"]
+description: "Short summary"
+timeToRead: 5
+---
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Deployment
 
-## 👀 Want to learn more?
+Build with `npm run build` and deploy the output according to your hosting provider. If using server output (see `astro.config.mjs` with `output: 'server'`), deploy to a Node-compatible host or adapt the output to a static site by switching `output` to `static`.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+
+If you want, I can also:
+
+- Add a contributing guide for writing posts
+- Add a GitHub Actions workflow for CI + deployment
+- Add a script that scaffolds a new post file with frontmatter
