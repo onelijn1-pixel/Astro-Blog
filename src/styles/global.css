@@ -1,0 +1,34 @@
+@import "tailwindcss";
+@import "./post.css";
+
+:root {
+  --font-roboto: "Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    "Helvetica Neue", Arial;
+}
+
+html,
+body {
+  font-family: var(--font-roboto);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.font-roboto {
+  font-family: var(--font-roboto) !important;
+}
+
+.toc-link.active {
+  @apply text-blue-600 font-bold border-l-4 border-blue-600;
+}
+
+.sticky-aside {
+  position: sticky;
+  top: 1.5rem;
+  max-height: calc(100vh - 20rem);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}

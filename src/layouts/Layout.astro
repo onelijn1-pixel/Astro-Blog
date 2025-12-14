@@ -1,0 +1,60 @@
+---
+import "../styles/global.css";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+interface LayoutProps {
+  title?: string;
+  description?: string;
+}
+const { title, description } = Astro.props as LayoutProps;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title ? title : "Blog Linh Chàn"}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content={description
+        ? description
+        : "Blog cá nhân của Linh Chàn về lập trình, công nghệ và phát triển web."}
+    />
+    <meta name="author" content="Linh Chàn" />
+    <meta name="robots" content="index, follow" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <Header />
+
+    <div id="page-wrapper" class="min-h-screen flex flex-col">
+      <div class="grow">
+        <slot />
+      </div>
+    </div>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

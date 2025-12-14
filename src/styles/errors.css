@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+:root {
+  --font-roboto: "Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    "Helvetica Neue", Arial;
+}
+
+html,
+body {
+  font-family: var(--font-roboto);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-roboto {
+  font-family: var(--font-roboto) !important;
+}
+
+:root {
+  --gray-10: hsl(258, 7%, 10%);
+  --gray-20: hsl(258, 7%, 20%);
+  --gray-30: hsl(258, 7%, 30%);
+  --gray-40: hsl(258, 7%, 40%);
+  --gray-50: hsl(258, 7%, 50%);
+  --gray-60: hsl(258, 7%, 60%);
+  --gray-70: hsl(258, 7%, 70%);
+  --gray-80: hsl(258, 7%, 80%);
+  --gray-90: hsl(258, 7%, 90%);
+  --black: #13151a;
+  --accent-light: #e0ccfa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--black);
+  color-scheme: dark;
+  accent-color: var(--accent-light);
+}
+
+a {
+  color: var(--accent-light);
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.statusCode {
+  color: var(--accent-light);
+}
+
+.astro-icon {
+  height: 124px;
+  width: 124px;
+}
+
+pre,
+code {
+  padding: 2px 8px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  font-size: 1.2em;
+  margin-top: 0;
+  max-width: 60em;
+}
+
+.error-wrapper {
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  display: flex;
+}
+
+.error-container {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: #2a313c;
+  text-align: center;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  margin: 2rem;
+  padding: 2rem;
+  transition: max-width 0.3s;
+  box-shadow: 0 8px 32px #0000004d;
+}
+
+.error-code {
+  text-shadow: 2px 2px 4px #0000004d;
+  margin: 0;
+  font-size: 8rem;
+  font-weight: 700;
+  animation: 2s infinite bounceError;
+}
+
+@keyframes bounceError {
+  0%,
+  20%,
+  50%,
+  80%,
+  to {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.error-message {
+  opacity: 0.9;
+  margin: 1rem 0;
+  font-size: 1.5rem;
+}
+
+.error-description {
+  opacity: 0.8;
+  margin: 1rem 0 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.logo img {
+  max-width: 130px;
+  height: auto;
+}
+
+.btn-action {
+  color: #fff;
+  background-color: #e61e25;
+  border-radius: 4px;
+  padding: 6px 12px;
+  display: inline-block;
+}
+
+.cl-black-blue {
+  color: #2a313c !important;
+}
+
+.cl-global-gray60 {
+  color: #808089 !important;
+}

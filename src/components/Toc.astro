@@ -1,0 +1,51 @@
+---
+import type { TocItem } from "../lib/toc";
+
+interface Props {
+  items: TocItem[];
+  level?: number;
+}
+
+const { items, level = 1 } = Astro.props;
+
+/**
+ * Build nested TOC as HTML string (JS thuần)
+ */
+function buildTocHtml(items: TocItem[], lvl = 1): string {
+  let html = '<ul class="toc-list">';
+
+  for (const item of items) {
+    html += `
+      <li>
+        <a
+          href="#${item.slug}"
+          class="toc-link"
+          style="padding-left: ${lvl * 0.75}rem"
+        >
+          ${item.text}
+        </a>
+    `;
+
+    if (item.children && item.children.length > 0 && lvl < 1) {
+      html += buildTocHtml(item.children, lvl + 1);
+    }
+
+    html += "</li>";
+  }
+
+  html += "</ul>";
+  return html;
+}
+
+const tocHtml = items && items.length ? buildTocHtml(items, level) : "";
+---
+
+{tocHtml && <nav class="toc" set:html={tocHtml} />}
+
+<style>
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+</style>

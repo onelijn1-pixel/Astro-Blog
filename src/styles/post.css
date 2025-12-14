@@ -1,0 +1,22 @@
+.content-prose h1 {
+  @apply text-3xl font-bold mt-8 mb-4 border-b pb-2;
+}
+.content-prose h2 {
+  @apply text-2xl font-semibold mt-6 mb-3;
+}
+.content-prose p {
+  @apply text-gray-700 leading-relaxed mb-4;
+}
+.content-prose ul,
+.content-prose ol {
+  @apply list-inside mb-4 pl-5;
+}
+.content-prose ul {
+  @apply list-disc;
+}
+.content-prose ol {
+  @apply list-decimal;
+}
+.content-prose a {
+  @apply text-blue-600 hover:text-blue-800 transition duration-150;
+}

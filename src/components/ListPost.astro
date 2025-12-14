@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+// fetch posts at build/server time
+const posts = await getCollection("blog");
+
+// sort by date (frontmatter date is a string in ISO format)
+posts.sort((a, b) => (a.data.date > b.data.date ? -1 : 1));
+
+const latest = posts.slice(0, 5);
+---
+
+<div class="space-y-4">
+  {
+    latest.map((post) => (
+      <article class="bg-white p-3 rounded-xl shadow-md flex flex-col md:flex-row items-start hover:shadow-lg transition duration-300">
+        <img
+          class="w-full h-20 md:w-20 md:h-auto object-cover rounded-lg mb-4 md:mb-0 md:mr-6 shrink-0"
+          src={post.data.thumbnail ?? ""}
+          alt={post.data.title}
+        />
+        <div class="grow">
+          {post.data.tags.map((tag) => (
+            <span class="text-sm font-semibold text-green-600 uppercase">
+              {tag}
+            </span>
+          ))}
+          <a href={`/blog/${post.id}`}>
+            <h3 class="mt-1 text-2xl font-bold text-gray-900 hover:text-indigo-600 transition duration-300">
+              {post.data.title}
+            </h3>
+          </a>
+          <p class="mt-2 text-gray-600 line-clamp-3">{post.data.description}</p>
+          <div class="mt-4 flex items-center text-sm text-gray-500 ml-auto w-fit">
+            <span class="mr-4">Ngày đăng: {post.data.date}</span>
+            <span>Thời gian đọc: {post.data.timeToRead} phút</span>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>
