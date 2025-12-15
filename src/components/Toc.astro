@@ -16,7 +16,7 @@ function buildTocHtml(items: TocItem[], lvl = 1): string {
 
   for (const item of items) {
     html += `
-      <li>
+      <li class="py-0.5 ">
         <a
           href="#${item.slug}"
           class="toc-link"
@@ -41,11 +41,3 @@ const tocHtml = items && items.length ? buildTocHtml(items, level) : "";
 ---
 
 {tocHtml && <nav class="toc" set:html={tocHtml} />}
-
-<style>
-  .toc-list {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-  }
-</style>

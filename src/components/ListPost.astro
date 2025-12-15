@@ -16,7 +16,7 @@ const latest = posts.slice(0, 5);
     latest.map((post) => (
       <article class="bg-white p-3 rounded-xl shadow-md flex flex-col md:flex-row items-start hover:shadow-lg transition duration-300">
         <img
-          class="w-full h-20 md:w-20 md:h-auto object-cover rounded-lg mb-4 md:mb-0 md:mr-6 shrink-0"
+          class="w-full h-30 md:w-30 md:h-auto object-cover rounded-lg mb-4 md:mb-0 md:mr-6 shrink-0"
           src={post.data.thumbnail ?? ""}
           alt={post.data.title}
         />
@@ -26,7 +26,7 @@ const latest = posts.slice(0, 5);
               {tag}
             </span>
           ))}
-          <a href={`/blog/${post.id}`}>
+          <a href={`/blog/${post.id}/`}>
             <h3 class="mt-1 text-2xl font-bold text-gray-900 hover:text-indigo-600 transition duration-300">
               {post.data.title}
             </h3>
