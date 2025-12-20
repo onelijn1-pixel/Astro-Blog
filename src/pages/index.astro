@@ -2,6 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import ListPost from "../components/ListPost.astro";
 import AboutSummary from "../components/AboutSummary.astro";
+
+import { getCollection } from "astro:content";
+const posts = await getCollection("blog");
 ---
 
 <Layout>
@@ -26,9 +29,12 @@ import AboutSummary from "../components/AboutSummary.astro";
               <li>
                 <a
                   href="#"
-                  class="text-gray-700 hover:text-astro-purple flex justify-between"
+                  aria-label="#LậpTrình"
+                  class="text-gray-800 hover:text-astro-purple flex justify-between"
                   ><span>#LậpTrình</span>
-                  <span class="text-xs text-gray-400">(3)</span></a
+                  <span class="text-xs text-gray-600"
+                    >(<span>{posts.length}</span>)</span
+                  ></a
                 >
               </li>
             </ul>

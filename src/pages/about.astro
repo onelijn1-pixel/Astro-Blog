@@ -1,0 +1,139 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import ToolSkill from "../components/about/ToolSkill.vue";
+---
+
+<Layout>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+    <div class="bg-white rounded p-5 shadow-md">
+      <!-- HERO -->
+      <section class="flex flex-col md:flex-row items-center gap-10">
+        <Image
+          src="/img/about.png"
+          alt={"About Me"}
+          class="w-32 h-32 rounded-full object-cover border border-gray-200 dark:border-gray-700"
+          width={128}
+          height={128}
+        />
+
+        <div>
+          <h1 class="text-4xl font-bold tracking-tight">Hi, I'm Linh 👋</h1>
+          <p class="mt-4 text-lg text-gray-600">
+            Web Developer · Vue · Laravel · Astro
+            <br />
+            I write about frontend, performance, and real-world coding.
+          </p>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="mt-16">
+        <h2 class="text-2xl font-semibold">About me</h2>
+
+        <div class="mt-6 space-y-4 text-gray-600 leading-relaxed">
+          <p>
+            I'm a web developer who enjoys building clean, fast, and
+            maintainable web applications. I mainly work with Vue, Laravel, and
+            modern frontend tools.
+          </p>
+
+          <p>
+            This blog is where I share things I learn along the way — from small
+            JavaScript tips to architecture decisions in real projects.
+          </p>
+
+          <p>
+            I believe good code should be easy to read, easy to change, and easy
+            to explain.
+          </p>
+        </div>
+      </section>
+
+      <!-- TOPICS -->
+      <section class="mt-16">
+        <h2 class="text-2xl font-semibold">What I write about</h2>
+
+        <div class="mt-6 grid sm:grid-cols-2 gap-6">
+          <div
+            class="p-5 rounded-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3 class="font-medium">Frontend</h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+              Vue, Astro, TailwindCSS, performance optimization
+            </p>
+          </div>
+
+          <div
+            class="p-5 rounded-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3 class="font-medium">Backend</h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+              Laravel, API design, database architecture
+            </p>
+          </div>
+
+          <div
+            class="p-5 rounded-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3 class="font-medium">Dev Workflow</h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+              Docker, Git, CI/CD, code organization
+            </p>
+          </div>
+
+          <div
+            class="p-5 rounded-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3 class="font-medium">Thoughts</h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+              Lessons learned, mistakes, and best practices
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="mt-16">
+        <h2 class="text-2xl font-semibold">Tools & Skills</h2>
+
+        <div class="mt-6">
+          <ToolSkill client:load />
+        </div>
+      </section>
+
+      <!-- TIMELINE -->
+      <section class="mt-16">
+        <h2 class="text-2xl font-semibold">Journey</h2>
+
+        <div
+          class="mt-6 space-y-6 border-l border-gray-200 dark:border-gray-700 pl-6"
+        >
+          <div>
+            <span class="text-sm text-gray-500">2023 – Present</span>
+            <p class="font-medium">Frontend & Fullstack Developer</p>
+            <p>Rivercrane</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="mt-20 text-center">
+        <h2 class="text-2xl font-semibold">Want to get in touch?</h2>
+
+        <p class="mt-4 text-gray-600 dark:text-gray-400">
+          Feel free to reach out or follow my writing.
+        </p>
+
+        <div class="mt-6 flex justify-center gap-4">
+          <a
+            href="/"
+            class="px-5 py-2 rounded-lg bg-black text-white dark:bg-white dark:text-black border border-gray-300"
+          >
+            Read the blog
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

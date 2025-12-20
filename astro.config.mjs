@@ -13,6 +13,5 @@ export default defineConfig({
   },
   integrations: [vue()],
   adapter: vercel({
-    // edge: false, // nếu bạn muốn dùng Serverless Function thay vì Edge Function
   }),
 });

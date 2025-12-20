@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 
 // fetch posts at build/server time
 const posts = await getCollection("blog");
@@ -22,7 +21,7 @@ const latest = posts.slice(0, 5);
         />
         <div class="grow">
           {post.data.tags.map((tag) => (
-            <span class="text-sm font-semibold text-green-600 uppercase">
+            <span class="text-sm font-semibold text-green-700 uppercase">
               {tag}
             </span>
           ))}
